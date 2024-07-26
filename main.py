@@ -70,9 +70,9 @@ backtest_results = backtest(data, model, X_test)
 
 # Metrics Calculation
 def calculate_metrics(backtest_results):
-    daily_returns = backtest_results['Strategy']
+    daily_returns = backtest_results.iloc['Strategy']
     sharpe_ratio = daily_returns.mean() / daily_returns.std() * np.sqrt(252)
-    average_roi = (backtest_results['Strategy'].sum() / len(backtest_results)) * 252 / data['Close'][0] * 100
+    average_roi = (backtest_results.iloc['Strategy'].sum() / len(backtest_results)) * 252 / data['Close'][0] * 100
     
     return sharpe_ratio, average_roi
 
